@@ -1,9 +1,6 @@
-#include<stdio.h>
-/*La funcion Main sirve para ejecutar la parte principal de un programa*/
+#include <stdio.h>
 int main(void)
 {
-	char frase[] = "Programming is like building a multilingual puzzle";
-
-	puts(frase);
-	return (0);
+    puts("\"Programming is like building a multilingual puzzle");
+    return (0);
 }
