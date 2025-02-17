@@ -9,11 +9,14 @@ int main(void)
 	char i = 'a';
 	char imayus = 'A';
 
-	while (i <= 'z' && imayus <= 'Z')
+	while (i <= 'z')
 	{
 		putchar(i);
-		putchar(imayus);
 		i++;
+	}
+	while (imayus <= 'Z')
+	{
+		putchar(imayus);
 		imayus++;
 	}
 	putchar('\n');
