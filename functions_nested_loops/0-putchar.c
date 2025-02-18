@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<main.h>
 /**
 * main - Print an word
 * Description: Print _putchar
