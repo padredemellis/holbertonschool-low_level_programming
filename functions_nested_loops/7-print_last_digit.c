@@ -5,9 +5,17 @@
  * print_last_digit - Mostrar el ultimo numero.
  * @n: El número a chequear.
  *
- * Return: abs(numero)%10.
+ * Return: abs(n) %10.
  */
 int print_last_digit(int n)
 {
-	return (abs(n) % 10);
+	int last_digit = n % 10;
+
+	if (last_digit < 0)
+	{
+		last_digit = -last_digit;
+	}
+	putchar(last_digit + '0');
+
+	return last_digit;
 }
