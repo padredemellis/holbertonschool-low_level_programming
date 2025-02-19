@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * _print_sign - Chequear el signo de un número.
+ * print_sign - Chequear el signo de un número.
  * @n: El número a chequear.
  *
  * Return: 1 si es positivo, 0 si es cero, -1 si es negativo.
  */
-int _print_sign(int n)
+int print_sign(int n)
 {
 	if (n > 0)
 	{
