@@ -1,9 +1,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-/* more headers goes there */
-
-/* betty style doc for function main goes there */
+/**
+ * main - Mostrar el ultimo digito.
+ * void: hacer cuentas.
+ *
+ * Return: digito.
+ *
+ */
 int main(void)
 {
 	int n;
