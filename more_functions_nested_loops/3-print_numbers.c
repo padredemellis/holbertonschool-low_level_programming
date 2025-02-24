@@ -11,8 +11,8 @@ void print_numbers(void)
 
 	for (c = 0; c < 10; c++)
 	{
-		putchar(c + '0');
+		_putchar(c + '0');
 	}
-	putchar('\n');
+	_putchar('\n');
 }
 
