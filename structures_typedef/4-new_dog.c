@@ -1,7 +1,40 @@
 #include <stdlib.h>
-#include <string.h>
 #include "dog.h"
 
+/**
+ * _strlen - Calcula la longitud de una cadena
+ * @s: Cadena de entrada
+ * Return: Longitud de la cadena
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+	{
+		len++;
+	}
+	return (len);
+}
+/**
+ * _strcpy - Copia una cadena
+ * @dest: Destino de la copia
+ * @src: Fuente a copiar
+ * Return: Puntero a dest
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+
+	return (dest);
+}
 /**
  * new_dog - Crea una nueva estructura dog_t
  * @name: Nombre del perro
@@ -11,36 +44,39 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
-	char *name_copy, *owner_copy;
-	int name_len, owner_len;
+	dog_t *new_d;
+	char *n_copy, *o_copy;
+	int n_len, o_len;
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (NULL);
-
-	name_len = strlen(name) + 1;
-	name_copy = malloc(name_len * sizeof(char));
-	if (name_copy == NULL)
+	if (!name || !owner)
 	{
-		free(new_dog);
 		return (NULL);
 	}
-	strcpy(name_copy, name);
-
-	owner_len = strlen(owner) + 1;
-	owner_copy = malloc(owner_len * sizeof(char));
-	if (owner_copy == NULL)
+	n_len = _strlen(name) + 1;
+	o_len = _strlen(owner) + 1;
+	new_d = malloc(sizeof(dog_t));
+	if (!new_d)
 	{
-		free(name_copy);
-		free(new_dog);
 		return (NULL);
 	}
-	strcpy(owner_copy, owner);
+	n_copy = malloc(n_len);
+	if (!n_copy)
+	{
+		free(new_d);
+		return (NULL);
+	}
+	_strcpy(n_copy, name);
+	o_copy = malloc(o_len);
+	if (!o_copy)
+	{
+		free(n_copy);
+		free(new_d);
+		return (NULL);
+	}
+	_strcpy(o_copy, owner);
+	new_d->name = n_copy;
+	new_d->age = age;
+	new_d->owner = o_copy;
 
-	new_dog->name = name_copy;
-	new_dog->age = age;
-	new_dog->owner = owner_copy;
-
-	return (new_dog);
+	return (new_d);
 }
