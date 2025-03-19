@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# ==============================================
+# SYNTHWAVE 84 CONFIGURATION SCRIPT
+# ==============================================
+
+echo -e "\033[36m"  # Color cian inicial
+
+# Actualizar e instalar sudo
+echo -e "\033[1;95m[+] Actualizando repositorios...\033[0m"
+apt update && apt install sudo -y
+
+# Instalar neovim
+echo -e "\n\033[1;95m[+] Instalando Neovim...\033[0m"
+sudo apt update && sudo apt install neovim -y
+
+# Crear directorio de configuración
+echo -e "\n\033[1;95m[+] Creando estructura de directorios...\033[0m"
+mkdir -p ~/.config/nvim
+
+# Aplicar configuración Synthwave
+echo -e "\n\033[1;95m[+] Aplicando tema Synthwave 84...\033[0m"
+cat > ~/.config/nvim/init.vim << 'E0F'
+" Configuración completa del tema
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/auto
