@@ -3,26 +3,23 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - Imprime cualquier cosa basada en un formato dado.
- * @format: Lista de tipos de argumentos pasados a la función.
+ * print_all - Prints values based on a format string
+ * @format: List of type identifiers (c: char, i: int, f: float, s: char*)
  */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	unsigned int i = 0, j = 0;
-	char *str;
-	const char t_arg[] = "cifs";
+	unsigned int i = 0;
+	char *str, *separator = "";
 
 	va_start(args, format);
 	while (format && format[i])
 	{
-		j = 0;
-		while (t_arg[j])
+		if (format[i] == 'c' || format[i] == 'i' || format[i] == 'f' || format[i] == 's')
 		{
-			if (format[i] == t_arg[j])
+			printf("%s", separator);
+			switch (format[i])
 			{
-				switch (format[i])
-				{
 				case 'c':
 					printf("%c", va_arg(args, int));
 					break;
@@ -34,16 +31,12 @@ void print_all(const char * const format, ...)
 					break;
 				case 's':
 					str = va_arg(args, char *);
-					if (str == NULL)
-						printf("(nil)");
-					else
-						printf("%s", str);
+					if (!str)
+						str = "(nil)";
+					printf("%s", str);
 					break;
-				}
-				if (format[i + 1] && t_arg[j + 1] != '\0')
-					printf(", ");
 			}
-			j++;
+			separator = ", ";
 		}
 		i++;
 	}
