@@ -1,30 +1,20 @@
 #include <stdlib.h>
 #include "lists.h"
-
 /**
- * free_list - Libera la memoria de una lista list_t
- * @head: Puntero doble al inicio de la lista
- *
- * Descripción: Recorre cada nodo liberando la memoria de
- * la cadena y del propio nodo, finalmente establece head a NULL
+ * free_list - libera la memoria de todos los nodos añadidos
+ * @head: puntero a cabeza de lista
  */
-void free_list(list_t **head)
+void free_list(list_t *head)
 {
-	list_t *current;
-	list_t *next;
+	list_t *tmp = head, *next;
 
-	if (head == NULL || *head == NULL)
+	if (head == NULL)
 		return;
-
-	current = *head;
-
-	while (current != NULL)
+	while (tmp != NULL)
 	{
-		next = current->next;
-		free(current->str);
-		free(current);
-		current = next;
+		next = tmp->next;
+		free(tmp->str);
+		free(tmp);
+		tmp = next;
 	}
-
-	*head = NULL;
 }
