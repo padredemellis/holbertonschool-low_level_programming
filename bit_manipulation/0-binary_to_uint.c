@@ -1,5 +1,5 @@
-#include "main.h"
 #include <stddef.h>
+#include "main.h"
 /**
  * binary_to_uint - Convierte una cadena binaria a un número entero sin signo.
  * @b: Puntero a una cadena de caracteres que contiene '0' y '1'.
