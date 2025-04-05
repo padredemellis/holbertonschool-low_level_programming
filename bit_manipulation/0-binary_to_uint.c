@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * binary_to_uint - Convierte una cadena binaria a un número entero sin signo.
  * @b: Puntero a una cadena de caracteres que contiene '0' y '1'.
@@ -7,7 +8,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int result = 0
+	unsigned int result = 0;
 	int i;
 
 	if (b == NULL)
